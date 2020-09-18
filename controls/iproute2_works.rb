@@ -24,14 +24,6 @@ control 'core-plans-iproute2-works' do
   end
   
   plan_pkg_version = plan_installation_directory.stdout.split("/")[5]
-  # ["iproute2"].each do |binary_name|
-  #   command_full_path = File.join(plan_installation_directory.stdout.strip, "bin", binary_name)
-  #   describe command("#{command_full_path} --version") do
-  #     its('exit_status') { should eq 0 }
-  #     its('stdout') { should_not be_empty }
-  #     its('stdout') { should match /#{binary_name} REPLACEME #{plan_pkg_version}/ }
-  #   end
-  # end
   full_suite = {
     "bridge" => {
       command_prefix: "hab pkg exec #{plan_origin}/#{plan_name}",
